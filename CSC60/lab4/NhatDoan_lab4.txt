@@ -1,0 +1,17 @@
+Script started on Mon 07 Oct 2019 02:32:30 PM PDT
+[doann@athena:21]> gcc -lm lab3[K4.c
+[doann@athena:22]> a.out
+[doann@athena:23]> cat lab4,[K.out
+
+Nhat Doan.  Lab 4.
+
+            Number      Perimeter      Area Of  
+ Radius    Of Sides    Of Polygon      Polygon  
+--------   --------   ------------   ----------- 
+  12.60      24.00        78.9422      493.0813
+   5.60       8.00        34.2884       88.6995
+   7.85      12.00        48.7615      184.8675
+[doann@athena:24]> exit
+exit
+
+Script done on Mon 07 Oct 2019 02:32:54 PM PDT

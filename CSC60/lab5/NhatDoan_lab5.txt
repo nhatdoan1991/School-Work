@@ -1,0 +1,24 @@
+Script started on Sat 19 Oct 2019 11:55:19 AM PDT
+[doann@athena:21]> toch[K[Kuch lab5.h
+[doann@athena:22]> l[Kmake
+gcc -c lab5.c
+gcc -c compute.c
+gcc lab5.o compute.o -o lab5 -lm
+[doann@athena:23]> lab3[K5
+[doann@athena:24]> cat lab5.out
+
+Nhat Doan.  Lab 5. 
+
+ Radius	    Area     Circumference  
+--------  --------  --------------- 
+   3.70     43.01        23.25  
+   6.80    145.27        42.73  
+   4.00     50.27        25.13  
+   5.60     98.52        35.19  
+  12.70    506.71        79.80  
+  45.60   6532.50       286.51  
+
+[doann@athena:25]> exit
+exit
+
+Script done on Sat 19 Oct 2019 11:55:39 AM PDT

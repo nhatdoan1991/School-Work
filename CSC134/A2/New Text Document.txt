@@ -1,0 +1,1 @@
+if there is a weak entity is depend to another weak entity, the dependent should have foreign key point to it parents

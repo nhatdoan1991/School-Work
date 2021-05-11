@@ -1,0 +1,59 @@
+---Query 1:  Retrieve information (SSN, first name and last name) about students who took the course ‘Computer Architecture’ (“Computer Architecture” is a course name).
+
+SELECT S.SSN, S.FIRST_NAME, S.LAST_NAME
+FROM STUDENT AS S , TAKES AS T, COURSE AS C
+WHERE T.SSN = S.SSN AND T.COURSENO= C.COURSENO AND C.COURSE_NAME = "Computer Architecture";
+
+--Query 2: Get the information (SSN, first name and last name) about students who have taken the course ‘VLSI’. Also get course number and the section number in which they have enrolled in the course.
+
+SELECT S.SSN, S.FIRST_NAME, S.LAST_NAME , E.COURSENO , E.SECTIONNO
+FROM STUDENT AS S , TAKES AS T, COURSE AS C, ENROLLS AS E
+WHERE S.SSN = E.SSN AND E.COURSENO = C.COURSENO AND T.SSN = S.SSN AND T.COURSENO= C.COURSENO AND C.COURSE_NAME = "VLSI";
+
+--Query 3:  Get the course names and course numbers which have 2 or more students.
+
+SELECT C.COURSE_NAME, C.COURSENO
+FROM ENROLLS AS E, COURSE AS C
+WHERE E.COURSENO = C.COURSENO
+GROUP BY COURSENO
+HAVING COUNT(E.SSN) > 1;
+
+--Query 4: Retrieve the information (SSN, first name and last name) of students who got     Grade ‘A’ in at least two exams.
+
+SELECT S.SSN, S.FIRST_NAME, S.LAST_NAME
+FROM STUDENT AS S, TAKES AS T
+WHERE T.RESULTS = "A" AND T.SSN = S.SSN
+GROUP BY T.SSN
+HAVING COUNT(T.RESULTS) > 1;
+
+
+
+--Query 5:Obtain  information  (exam  number,  course  number  and  section  number)  about  the exams taking place in building ‘Riverside Hall’. Along with that get the room’s capacity, room number and its building name.
+
+SELECT C.EXAMNO, C.COURSENO, C.SECTIONNO, M.CAPACITY, M.ROOMNO, M.BUILDING
+FROM CONDUCT_IN AS C, CLASS_ROOM AS M
+WHERE C.BUILDING = "RIVERSIDE HALL" AND M.BUILDING = C.BUILDING AND M.ROOMNO= C.ROOMNO;
+
+--Query 6:Retrieve information (SSN, first name and last name) about students who are enrolled in the course of ‘CSC11’ or ‘CSC12’ (‘CSC11’ and ‘CSC12’ are course numbers).  Note: MySQL does not support “INTERSECT”. 
+
+SELECT S.SSN, S.FIRST_NAME, S.LAST_NAME, E.COURSENO
+FROM STUDENT AS S INNER JOIN ENROLLS AS E ON S.SSN = E.SSN
+WHERE E.COURSENO= "CSC11" OR E.COURSENO= "CSC12";
+
+-- COURSENO IS AN EXTRA COLUMN FOR CLARIFICATION
+
+--Query 7: Retrieve the courses that have more than 2 sections.  (List course name and number of sections)
+
+SELECT C.COURSE_NAME, COUNT(S.SECTIONNO)
+FROM COURSE AS C, SECTION AS S
+WHERE C.COURSENO = S.COURSENO
+GROUP BY S.COURSENO
+HAVING COUNT(S.SECTIONNO) > 1;
+
+--Query 8:  Retrieve  all  the  exams  that  are  conducted  in  RVR  1002.   “RVR”  is  build  name  and “1002”  is  roomNo.  Retrieve  the  following  information:  Building,  RoomNo,  Capacity, CourseNo,  SectionNo,  ExamNo.   If  a  classroom  has  no  exam  at  all,  display  CourseNo, SectionNo, ExamNo with a NULL value.
+
+SELECT C.EXAMNO, C.COURSENO, C.SECTIONNO, M.CAPACITY, M.ROOMNO, M.BUILDING
+FROM CONDUCT_IN AS C RIGHT OUTER JOIN CLASS_ROOM AS M ON C.ROOMNO=M.ROOMNO
+WHERE M.BUILDING = "RVS" AND M.ROOMNO="1002";
+
+

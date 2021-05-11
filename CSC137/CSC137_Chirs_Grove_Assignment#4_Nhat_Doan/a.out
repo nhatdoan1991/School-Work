@@ -1,0 +1,261 @@
+#! /gaia/home/faculty/changw/ivl/bin/vvp
+:ivl_version "0.9.6 " "(v0_9_6)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x9b5b30 .scope module, "TestMod" "TestMod" 2 37;
+ .timescale 0 0;
+v0x9ee660_0 .var "D", 0 3;
+RS_0x7f25fd49d5b8 .resolv tri, L_0x9eee10, L_0x9ef5a0, L_0x9efca0, L_0x9f0360;
+v0x9ee6e0_0 .net8 "Q", 0 3, RS_0x7f25fd49d5b8; 4 drivers
+v0x9ee790_0 .var "en", 0 0;
+S_0x9b6990 .scope module, "myDQ4" "DQ4" 2 42, 2 27, S_0x9b5b30;
+ .timescale 0 0;
+v0x9ee450_0 .net "D", 0 3, v0x9ee660_0; 1 drivers
+v0x9ee4d0_0 .alias "Q", 0 3, v0x9ee6e0_0;
+v0x9ee550_0 .net "en", 0 0, v0x9ee790_0; 1 drivers
+L_0x9eed20 .part v0x9ee660_0, 3, 1;
+L_0x9eee10 .part/pv L_0x9eebd0, 3, 1, 4;
+L_0x9ef500 .part v0x9ee660_0, 2, 1;
+L_0x9ef5a0 .part/pv L_0x9ef3b0, 2, 1, 4;
+L_0x9efb70 .part v0x9ee660_0, 1, 1;
+L_0x9efca0 .part/pv L_0x9efa20, 1, 1, 4;
+L_0x9f02c0 .part v0x9ee660_0, 0, 1;
+L_0x9f0360 .part/pv L_0x9f0170, 0, 1, 4;
+S_0x9edba0 .scope module, "myDQ1" "DQ" 2 31, 2 15, S_0x9b6990;
+ .timescale 0 0;
+L_0x9ee810 .functor AND 1, L_0x9eed20, v0x9ee790_0, C4<1>, C4<1>;
+L_0x9ee870 .functor NOT 1, L_0x9eed20, C4<0>, C4<0>, C4<0>;
+L_0x9ee950 .functor AND 1, L_0x9ee870, v0x9ee790_0, C4<1>, C4<1>;
+v0x9ee020_0 .net "D", 0 0, L_0x9eed20; 1 drivers
+v0x9ee0e0_0 .net "Dnot", 0 0, L_0x9ee870; 1 drivers
+v0x9ee180_0 .net "Q", 0 0, L_0x9eebd0; 1 drivers
+v0x9ee200_0 .net "R", 0 0, L_0x9ee950; 1 drivers
+v0x9ee2e0_0 .net "S", 0 0, L_0x9ee810; 1 drivers
+v0x9ee390_0 .alias "en", 0 0, v0x9ee550_0;
+S_0x9edc90 .scope module, "mySR" "SR" 2 23, 2 5, S_0x9edba0;
+ .timescale 0 0;
+L_0x9eea50 .functor NOR 1, L_0x9ee810, L_0x9eead0, C4<0>, C4<0>;
+L_0x9eead0 .functor NOR 1, L_0x9ee950, L_0x9eea50, C4<0>, C4<0>;
+L_0x9eebd0/d .functor BUFZ 1, L_0x9eead0, C4<0>, C4<0>, C4<0>;
+L_0x9eebd0 .delay (1,1,1) L_0x9eebd0/d;
+v0x9edd80_0 .alias "O", 0 0, v0x9ee180_0;
+v0x9ede00_0 .alias "R", 0 0, v0x9ee200_0;
+v0x9ede80_0 .net "Rout", 0 0, L_0x9eead0; 1 drivers
+v0x9edf00_0 .alias "S", 0 0, v0x9ee2e0_0;
+v0x9edf80_0 .net "Sout", 0 0, L_0x9eea50; 1 drivers
+S_0x9ed260 .scope module, "myDQ2" "DQ" 2 32, 2 15, S_0x9b6990;
+ .timescale 0 0;
+L_0x9eef00 .functor AND 1, L_0x9ef500, v0x9ee790_0, C4<1>, C4<1>;
+L_0x9ee5d0 .functor NOT 1, L_0x9ef500, C4<0>, C4<0>, C4<0>;
+L_0x9ef130 .functor AND 1, L_0x9ee5d0, v0x9ee790_0, C4<1>, C4<1>;
+v0x9ed6f0_0 .net "D", 0 0, L_0x9ef500; 1 drivers
+v0x9ed7b0_0 .net "Dnot", 0 0, L_0x9ee5d0; 1 drivers
+v0x9ed850_0 .net "Q", 0 0, L_0x9ef3b0; 1 drivers
+v0x9ed900_0 .net "R", 0 0, L_0x9ef130; 1 drivers
+v0x9ed9e0_0 .net "S", 0 0, L_0x9eef00; 1 drivers
+v0x9eda90_0 .alias "en", 0 0, v0x9ee550_0;
+S_0x9ed350 .scope module, "mySR" "SR" 2 23, 2 5, S_0x9ed260;
+ .timescale 0 0;
+L_0x9ef230 .functor NOR 1, L_0x9eef00, L_0x9ef2b0, C4<0>, C4<0>;
+L_0x9ef2b0 .functor NOR 1, L_0x9ef130, L_0x9ef230, C4<0>, C4<0>;
+L_0x9ef3b0/d .functor BUFZ 1, L_0x9ef2b0, C4<0>, C4<0>, C4<0>;
+L_0x9ef3b0 .delay (1,1,1) L_0x9ef3b0/d;
+v0x9ed440_0 .alias "O", 0 0, v0x9ed850_0;
+v0x9ed4c0_0 .alias "R", 0 0, v0x9ed900_0;
+v0x9ed540_0 .net "Rout", 0 0, L_0x9ef2b0; 1 drivers
+v0x9ed5c0_0 .alias "S", 0 0, v0x9ed9e0_0;
+v0x9ed670_0 .net "Sout", 0 0, L_0x9ef230; 1 drivers
+S_0x9ec960 .scope module, "myDQ3" "DQ" 2 33, 2 15, S_0x9b6990;
+ .timescale 0 0;
+L_0x9ef640 .functor AND 1, L_0x9efb70, v0x9ee790_0, C4<1>, C4<1>;
+L_0x9ef6f0 .functor NOT 1, L_0x9efb70, C4<0>, C4<0>, C4<0>;
+L_0x9ef7a0 .functor AND 1, L_0x9ef6f0, v0x9ee790_0, C4<1>, C4<1>;
+v0x9ece00_0 .net "D", 0 0, L_0x9efb70; 1 drivers
+v0x9ecec0_0 .net "Dnot", 0 0, L_0x9ef6f0; 1 drivers
+v0x9ecf60_0 .net "Q", 0 0, L_0x9efa20; 1 drivers
+v0x9ed010_0 .net "R", 0 0, L_0x9ef7a0; 1 drivers
+v0x9ed0f0_0 .net "S", 0 0, L_0x9ef640; 1 drivers
+v0x9ed1a0_0 .alias "en", 0 0, v0x9ee550_0;
+S_0x9eca50 .scope module, "mySR" "SR" 2 23, 2 5, S_0x9ec960;
+ .timescale 0 0;
+L_0x9ef8a0 .functor NOR 1, L_0x9ef640, L_0x9ef920, C4<0>, C4<0>;
+L_0x9ef920 .functor NOR 1, L_0x9ef7a0, L_0x9ef8a0, C4<0>, C4<0>;
+L_0x9efa20/d .functor BUFZ 1, L_0x9ef920, C4<0>, C4<0>, C4<0>;
+L_0x9efa20 .delay (1,1,1) L_0x9efa20/d;
+v0x9ecb40_0 .alias "O", 0 0, v0x9ecf60_0;
+v0x9ecbc0_0 .alias "R", 0 0, v0x9ed010_0;
+v0x9ecc40_0 .net "Rout", 0 0, L_0x9ef920; 1 drivers
+v0x9ecce0_0 .alias "S", 0 0, v0x9ed0f0_0;
+v0x9ecd60_0 .net "Sout", 0 0, L_0x9ef8a0; 1 drivers
+S_0x9b6e00 .scope module, "myDQ4" "DQ" 2 34, 2 15, S_0x9b6990;
+ .timescale 0 0;
+L_0x9efe10 .functor AND 1, L_0x9f02c0, v0x9ee790_0, C4<1>, C4<1>;
+L_0x9efe70 .functor NOT 1, L_0x9f02c0, C4<0>, C4<0>, C4<0>;
+L_0x9efef0 .functor AND 1, L_0x9efe70, v0x9ee790_0, C4<1>, C4<1>;
+v0x9ec500_0 .net "D", 0 0, L_0x9f02c0; 1 drivers
+v0x9ec5c0_0 .net "Dnot", 0 0, L_0x9efe70; 1 drivers
+v0x9ec660_0 .net "Q", 0 0, L_0x9f0170; 1 drivers
+v0x9ec710_0 .net "R", 0 0, L_0x9efef0; 1 drivers
+v0x9ec7f0_0 .net "S", 0 0, L_0x9efe10; 1 drivers
+v0x9ec8a0_0 .alias "en", 0 0, v0x9ee550_0;
+S_0x9b6ef0 .scope module, "mySR" "SR" 2 23, 2 5, S_0x9b6e00;
+ .timescale 0 0;
+L_0x9efff0 .functor NOR 1, L_0x9efe10, L_0x9f0070, C4<0>, C4<0>;
+L_0x9f0070 .functor NOR 1, L_0x9efef0, L_0x9efff0, C4<0>, C4<0>;
+L_0x9f0170/d .functor BUFZ 1, L_0x9f0070, C4<0>, C4<0>, C4<0>;
+L_0x9f0170 .delay (1,1,1) L_0x9f0170/d;
+v0x9b86c0_0 .alias "O", 0 0, v0x9ec660_0;
+v0x9ec270_0 .alias "R", 0 0, v0x9ec710_0;
+v0x9ec310_0 .net "Rout", 0 0, L_0x9f0070; 1 drivers
+v0x9ec3b0_0 .alias "S", 0 0, v0x9ec7f0_0;
+v0x9ec460_0 .net "Sout", 0 0, L_0x9efff0; 1 drivers
+    .scope S_0x9b5b30;
+T_0 ;
+    %vpi_call 2 45 "$monitor", "%4d  %b  %b  %b", $time, v0x9ee660_0, v0x9ee790_0, v0x9ee6e0_0;
+    %vpi_call 2 46 "$display", "Time  D...  en Q...";
+    %vpi_call 2 47 "$display", "----  ----  -  ----";
+    %end;
+    .thread T_0;
+    .scope S_0x9b5b30;
+T_1 ;
+    %delay 1, 0;
+    %set/v v0x9ee660_0, 0, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 1, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 2, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 3, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 4, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 5, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 6, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 7, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 8, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 9, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 10, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 11, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 12, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 13, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %movi 8, 14, 4;
+    %set/v v0x9ee660_0, 8, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %delay 1, 0;
+    %set/v v0x9ee660_0, 1, 4;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x9ee790_0, 0, 1;
+    %delay 1, 0;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x9b5b30;
+T_2 ;
+    %delay 69, 0;
+    %vpi_call 2 68 "$finish";
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "DQ4.v";
