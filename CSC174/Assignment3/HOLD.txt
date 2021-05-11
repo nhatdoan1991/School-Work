@@ -1,0 +1,12 @@
+	
+/* 
+create trigger AFTER_HOMEOWNER_DELETE
+    after delete
+    on homeowner
+    for each row
+BEGIN
+   IF NOT EXISTS(SELECT * FROM contractor WHERE contractor.CID = OLD.CID) THEN
+        DELETE FROM customer WHERE customer.CID =OLD.CID;
+    end if;
+END;
+*/

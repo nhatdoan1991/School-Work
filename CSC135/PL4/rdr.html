@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="main.css" rel="stylesheet">
+	<title style="padding-bottom:10px">Nhat Doan Personal Website</title>
+	
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Raleway, Georgia, "Times New Roman", Times, serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.queue-catagories{
+    padding-top: 15px;
+}
+.content-heading{
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom:3%;
+}
+	body {
+  font-weight: 300;
+}
+
+a:hover,
+a:visited {
+  color: #fff;
+}
+
+nav {
+  width: 100%;
+  height: 60px;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(100, 50, 20, 1) 0%,
+    rgba(193, 134, 244, 1) 50%,
+    rgba(2, 0, 36, 1) 100%
+  );
+}
+
+.nav-brand {
+  display: inline-block;
+}
+
+.nav-brand > * {
+  display: inline-block;
+}
+
+.nav-brand img {
+  height: 54px;
+  vertical-align: top;
+  padding: 3px;
+}
+
+.nav-brand h2 {
+  line-height: 60px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+}
+
+nav ul {
+  float: right;
+}
+nav h2 {
+}
+nav ul li {
+  position: relative;
+  display: inline-block;
+}
+
+nav ul li a {
+  display: block;
+  font-size: 20px;
+  padding: 17px 17px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/*dropdown hidden by deafult*/
+nav ul li ul {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+nav ul li ul li {
+  width: 180px;
+}
+
+nav ul li ul li a {
+  padding: 8px 8px;
+  display: block;
+  text-decoration: none;
+}
+
+nav ul li:hover ul {
+  display: block;
+}
+
+nav ul li ul li a:hover {
+  background-color: #fff;
+}
+
+
+/* I (harry) imported these from mine. */
+body{
+  background-color: rgb(255, 255, 255);
+}
+div.navi {
+   overflow: hidden;
+   background-color: rgb(75, 123, 185);
+   margin-bottom: 14px;
+ }
+ 
+ a {
+   float: left;
+   color: #f2f2f2;
+   text-align: center;
+   text-decoration: none;
+   font-size: 17px;
+ }
+ 
+ a:hover {
+   color: black;
+ }
+ 
+ a.active {
+   background-color: #9e37c0;
+   color: white;
+ }
+ .content-content{
+	padding:20px;
+}
+.content-label{
+	
+}
+.image{
+padding-left:30%;
+}
+li{
+padding-left:30px;
+text-decoration: none;
+list-style-type: none;
+}
+</style>
+</head>
+    <body>  
+
+        <header>
+	  <nav>
+                <div class="container">
+                <div class="nav-brand"> 
+                    <h2><center>Nhat Doan Personal Website</center></h2>               
+		 </div>
+                <ul class="ulButtons">
+		<li><a href="http://athena.ecs.csus.edu/~doann/">Home</a></li>
+                </ul>
+                
+                </div>
+            </nav> 
+        </header>
+	<div class="container content">
+        <h2 class ="content-heading"></i>RDR</h2>
+        <div class = "content-label">
+	<h3 class ="subcontent-heading">Grammar</i></h3>
+	<div style="font-size:20px;"class = "content-content">
+	<p><i class="fa fa-check" aria-hidden="true" style="color:black">
+	EXP &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp ::= EXP  + TERM   | EXP - TERM    | TERM <br>
+        TERM &nbsp &nbsp&nbsp ::= TERM * FACTOR | TERM / FACTOR | FACTOR<br>
+        FACTOR &nbsp::= ( EXP ) | DIGIT<br>
+        DIGIT &nbsp&nbsp&nbsp&nbsp&nbsp ::= 0 | 1 | 2 | 3	<br>
+	</p>
+	</div>	
+	<h3 class ="subcontent-heading">Intructions</i></h3>
+	<div style="font-size:20px;" class = "content-content">
+	<p>
+	This program is to check if a string is a valid math expression using '(' ')' '+' '-' '*' '/' '0' '1' '2' 3' characters where the string must ends with '$'
+	<br>Therefore, in order to get a correct result, you must type in a right expression similar to the valid examples belows.
+	</p>
+	</div>
+	<h3 class ="subcontent-heading">Example</i></h3>
+	<div style="font-size:20px;" class = "content-content">
+	<p>
+	Valid set: 1+2$ , 0-3*2$, 2/(3+1)$<br>
+
+	invalid set: 1+2, 1*4$, 1*a$	<br>
+	</div>
+	
+	<h3 class ="subcontent-heading">User Interface</i></h3>
+	<div style="font-size:20px;" class = "content-content">
+	<label> Input String</label>
+	<input id="input" type="text" name="input" value="" style="margin-left:20px; width :30%" required><br><br>
+	<button type="submit" onclick="checkString(document.getElementById('input').value)" style="margin-left:108px; width :15%",font-size:20px; > Submit </button>
+	<br>
+	</div>
+	
+	<h3 class ="subcontent-heading">Report</i></h3>
+	<div style="font-size:20px;" class = "content-content">
+	<p>
+	&nbsp&nbsp&nbsp I have learned both PHP and JS before, but I chose to use JS to implement my RDR page because I want to keep everything consistent. JS is more straight forward in my opinion since its easier to get functions called while php you need to make a request from a form.
+	<br><br>&nbsp&nbsp&nbsp I found this RDR's methodology is really helpful for string/characters recognizer that we will somehow interact in our career later.  
+	</p>
+	</div>
+
+	<div style="padding-bottom:500px"></div>
+<script>
+
+var stringInput
+var index
+var flag 
+function checkString(string){
+	
+	if(string.length>0){
+		flag = 0
+		index=0
+		stringInput = string
+		if(string[string.length-1] === '$'){
+		expr()
+		if(stringInput[index] === '$')
+		{
+			if(flag === 0){
+			confirm("Valid!")
+			}
+		}else{
+		confirm("Invalid!");
+		}
+			
+		}else{
+		confirm("Invalid!");
+		} 
+	}else{
+	confirm("Invalid!");
+	}
+}
+function validate_token(token){
+	if(stringInput[index] === token){
+	index++
+	}else{
+	}
+}
+function expr(){
+	term()
+	while(stringInput[index] === '+' || stringInput[index] === '-'){
+		index++
+		term()
+	}
+}
+function term(){
+	factor()
+	while(stringInput[index] === '*' || stringInput[index] === '/'){
+		index++
+		factor()
+	}
+
+}
+function factor(){
+	if(stringInput[index] === '(' )
+	{
+		index++
+		expr()
+		if(stringInput[index] === ')' )
+		{
+			index++;
+		}else{
+			confirm("Invalid!");
+			flag=1;
+			index++;
+		}
+	}else if(stringInput[index] === '0'||stringInput[index] === '1'||stringInput[index] === '2'||stringInput[index] === '3')
+	{
+		digit()
+	}	
+	else{
+		confirm("Invalid!");
+		flag=1;
+		index++;
+
+	}
+}
+function digit(){
+	if(stringInput[index] === '0'||stringInput[index] === '1'||stringInput[index] === '2'||stringInput[index] === '3'){
+		index++
+	}else{
+		confirm("Invalid!");
+		flag=1;
+		index++;
+	}
+	
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
+

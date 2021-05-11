@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="content.css" type="text/css">
+    <link rel="stylesheet" href="nav.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <title>Book Editing</title>
+</head>
+
+<body style="background: #E8E8E8;">
+
+    <header>
+        <div class="flex-container">
+            <nav>
+
+                <ul class="menu">
+                    <li class="logo"><a>Edit Book</a></li>
+                </ul>
+
+            </nav>
+        </div>
+
+    </header>
+	<div id="addbook-modal" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<span id="close-newgroup" class="close">&times;</span>
+				<?php
+				<h2>Edit Book</h2>
+				?>
+			</div>
+			<div class="modal-body">
+				<form class="form" action="insert_book.php" method="POST">
+					<fieldset>
+						<br>
+						<label style="padding-bottom:5px;" for="groupname">ISBN:</label>
+						<input type="text"name="isbn" value="" placeholder="Enter Group Name">
+						<br>
+						<label style="padding-bottom:5px;" for="groupname">Tittle:</label>
+						<input type="text"name="tittle" value="" placeholder="Enter Book's tittle">
+						<br>
+						<label style="padding-bottom:5px;" for="groupname">Edition:</label>
+						<input type="text"name="edition" value="" placeholder="Enter edition">
+						<br>
+						<label style="padding-bottom:5px;" for="groupname">Author:</label>
+						<input type="text"name="author" value="" placeholder="Enter author name">
+						<br>
+						<label style="padding-bottom:5px;" for="groupname">Publisher:</label>
+						<input type="text"name="publisher" value="" placeholder="Enter publiser">
+						<br>
+						<label style="padding-bottom:5px;" for="groupname">Publish Date:</label>
+						<input type="text"name="publish_date" value="" placeholder="Enter publish date">
+						<br>
+					</fieldset>
+					<br>
+					<button type="submit" class="btn btn-success">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						OK
+					</button>
+					<button id="close" type="button" class="btn btn-danger">
+						<i class="fa fa-times" aria-hidden="true"></i>
+						Cancel
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
